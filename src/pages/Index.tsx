@@ -1,5 +1,6 @@
+
 import React, { useState, useMemo } from 'react';
-import { Plus, Calendar, Search } from 'lucide-react';
+import { Plus, Calendar, Search, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import EventCard from '../components/EventCard';
@@ -23,10 +24,16 @@ const Index = () => {
   const filteredEvents = useMemo(() => {
     return events.filter(event => {
       const matchesSearch = event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           event.description.toLowerCase().includes(searchTerm.toLowerCase());
+                           event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           event.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+      
       const matchesCategory = selectedCategory === 'all' || event.category === selectedCategory;
+      
       const matchesLocation = selectedLocation === 'all' || 
-                             event.location.toLowerCase().includes(selectedLocation.replace('-', ' '));
+                             event.venue.city.toLowerCase().includes(selectedLocation.replace('-', ' ')) ||
+                             event.venue.state.toLowerCase().includes(selectedLocation.replace('-', ' ')) ||
+                             (selectedLocation === 'online' && event.location.toLowerCase().includes('online')) ||
+                             (selectedLocation === 'virtual' && (event.location.toLowerCase().includes('virtual') || event.location.toLowerCase().includes('online')));
       
       return matchesSearch && matchesCategory && matchesLocation;
     });
@@ -92,17 +99,24 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-xl font-semibold text-gray-900">EventHub</h1>
-                <p className="text-sm text-gray-500">Discover and manage events</p>
+                <p className="text-sm text-gray-500">Global Events Platform</p>
               </div>
             </div>
             
-            <Button 
-              onClick={() => setIsCreateModalOpen(true)}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
-            >
-              <Plus className="w-4 h-4 mr-2" />
-              Create Event
-            </Button>
+            <div className="flex items-center gap-3">
+              <div className="hidden sm:flex items-center gap-2 text-sm text-gray-600">
+                <Globe className="w-4 h-4" />
+                <span>Worldwide & Online Events</span>
+              </div>
+              <Button 
+                onClick={() => setIsCreateModalOpen(true)}
+                className="bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                <span className="hidden sm:inline">Create Event</span>
+                <span className="sm:hidden">Create</span>
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -111,11 +125,12 @@ const Index = () => {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Find Your Next Event
+            Discover Events Worldwide
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover conferences, workshops, networking events, and more in your area. 
-            Connect with your community and expand your horizons.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            From tech conferences in Silicon Valley to cultural festivals in India, 
+            find in-person and online events that match your interests. 
+            Connect globally, learn locally.
           </p>
         </div>
 
@@ -135,13 +150,38 @@ const Index = () => {
 
         {/* Events Section */}
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
             <h3 className="text-2xl font-semibold text-gray-900">
               {filteredEvents.length === events.length 
                 ? 'All Events' 
                 : `${filteredEvents.length} Events Found`
               }
             </h3>
+            
+            {/* Quick filters for mobile */}
+            <div className="flex gap-2 overflow-x-auto sm:hidden">
+              <Button 
+                variant={selectedLocation === 'online' ? 'default' : 'outline'} 
+                size="sm"
+                onClick={() => setSelectedLocation(selectedLocation === 'online' ? 'all' : 'online')}
+              >
+                Online
+              </Button>
+              <Button 
+                variant={selectedLocation.includes('india') || selectedLocation === 'bengaluru' || selectedLocation === 'mumbai' || selectedLocation === 'delhi' ? 'default' : 'outline'} 
+                size="sm"
+                onClick={() => setSelectedLocation(selectedLocation.includes('india') ? 'all' : 'bengaluru')}
+              >
+                India
+              </Button>
+              <Button 
+                variant={selectedCategory === 'conference' ? 'default' : 'outline'} 
+                size="sm"
+                onClick={() => setSelectedCategory(selectedCategory === 'conference' ? 'all' : 'conference')}
+              >
+                Tech
+              </Button>
+            </div>
           </div>
 
           {filteredEvents.length === 0 ? (
@@ -150,7 +190,7 @@ const Index = () => {
               <h3 className="text-lg font-medium text-gray-900 mb-2">No events found</h3>
               <p className="text-gray-500 mb-6">
                 {searchTerm || selectedCategory !== 'all' || selectedLocation !== 'all'
-                  ? 'Try adjusting your search criteria'
+                  ? 'Try adjusting your search criteria or explore different locations'
                   : 'Be the first to create an event!'
                 }
               </p>

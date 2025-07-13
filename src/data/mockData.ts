@@ -1,4 +1,3 @@
-
 import { Event, RSVP } from '../types/event';
 
 export const mockEvents: Event[] = [
@@ -78,6 +77,394 @@ export const mockEvents: Event[] = [
     agenda: ['React 19 Features', 'State Management Patterns', 'Performance Optimization', 'Testing Strategies'],
     requirements: ['JavaScript knowledge', 'Laptop with Node.js'],
     benefits: ['Conference recordings', 'Networking dinner', 'Workshop materials', 'Job board access']
+  },
+  // Online Events
+  {
+    id: '11',
+    title: 'Global Virtual Tech Summit 2024',
+    description: 'Connect with tech leaders worldwide in this comprehensive online summit covering AI, blockchain, cybersecurity, and future technologies.',
+    date: '2024-09-20',
+    time: '09:00',
+    location: 'Online Event',
+    maxAttendees: 10000,
+    currentAttendees: 7834,
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=400&fit=crop',
+    organizer: 'Tech Summit Global',
+    category: 'conference',
+    isPublic: true,
+    rsvpDeadline: '2024-09-18',
+    price: 0,
+    contactInfo: {
+      email: 'info@techsummitglobal.com',
+      phone: '+1-888-TECH-001',
+      website: 'https://techsummitglobal.com',
+      socialMedia: {
+        twitter: '@techsummitglobal',
+        linkedin: 'tech-summit-global',
+        instagram: '@techsummitglobal'
+      }
+    },
+    venue: {
+      name: 'Virtual Platform',
+      address: 'Online',
+      city: 'Global',
+      state: 'Online',
+      zipCode: '00000',
+      capacity: 15000
+    },
+    tags: ['Technology', 'AI', 'Blockchain', 'Cybersecurity', 'Virtual', 'Global'],
+    speakers: ['Tech CEOs', 'AI Researchers', 'Blockchain Experts', 'Security Leaders'],
+    agenda: ['AI Revolution Keynote', 'Blockchain Workshop', 'Cybersecurity Panel', 'Networking Sessions'],
+    requirements: ['Stable internet connection', 'Computer or mobile device'],
+    benefits: ['All session recordings', 'Digital certificates', 'Networking platform access', 'Resource downloads']
+  },
+  {
+    id: '12',
+    title: 'Remote Work Mastery Workshop',
+    description: 'Learn essential skills for remote work success including productivity techniques, communication strategies, and work-life balance.',
+    date: '2024-08-25',
+    time: '14:00',
+    location: 'Online Event',
+    maxAttendees: 500,
+    currentAttendees: 387,
+    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=400&fit=crop',
+    organizer: 'Remote Work Institute',
+    category: 'workshop',
+    isPublic: true,
+    rsvpDeadline: '2024-08-23',
+    price: 149,
+    contactInfo: {
+      email: 'workshops@remoteworkinstitute.com',
+      phone: '+1-555-REMOTE-1',
+      website: 'https://remoteworkinstitute.com',
+      socialMedia: {
+        linkedin: 'remote-work-institute',
+        twitter: '@remoteworkinst'
+      }
+    },
+    venue: {
+      name: 'Zoom Platform',
+      address: 'Online',
+      city: 'Virtual',
+      state: 'Online',
+      zipCode: '00000',
+      capacity: 500
+    },
+    tags: ['Remote Work', 'Productivity', 'Work-Life Balance', 'Professional Development'],
+    speakers: ['Remote Work Expert Sarah Chen', 'Productivity Coach Mike Ross'],
+    agenda: ['Remote Work Fundamentals', 'Productivity Tools', 'Communication Skills', 'Q&A Session'],
+    requirements: ['Zoom application', 'Notebook for taking notes'],
+    benefits: ['Workshop materials', 'Certificate of completion', '30-day email support', 'Template downloads']
+  },
+  {
+    id: '13',
+    title: 'International Online Film Festival',
+    description: 'Experience cinema from around the world in this virtual film festival featuring independent films, documentaries, and short films.',
+    date: '2024-09-10',
+    time: '18:00',
+    location: 'Online Event',
+    maxAttendees: 2000,
+    currentAttendees: 1567,
+    image: 'https://images.unsplash.com/photo-1489599510139-06b6692c9915?w=800&h=400&fit=crop',
+    organizer: 'Global Cinema Collective',
+    category: 'art',
+    isPublic: true,
+    rsvpDeadline: '2024-09-08',
+    price: 25,
+    contactInfo: {
+      email: 'festival@globalcinema.org',
+      phone: '+1-555-FILM-001',
+      website: 'https://globalcinemaonline.org',
+      socialMedia: {
+        instagram: '@globalcinema',
+        facebook: 'globalcinemaonline',
+        twitter: '@globalcinema'
+      }
+    },
+    venue: {
+      name: 'Virtual Cinema Platform',
+      address: 'Online',
+      city: 'Global',
+      state: 'Online',
+      zipCode: '00000',
+      capacity: 2500
+    },
+    tags: ['Film', 'Cinema', 'Art', 'Culture', 'International', 'Virtual'],
+    speakers: ['Film Directors', 'Critics', 'Industry Professionals'],
+    agenda: ['Opening Ceremony', 'Film Screenings', 'Director Q&As', 'Awards Ceremony'],
+    requirements: ['High-speed internet', 'Large screen recommended'],
+    benefits: ['Access to all films', 'Director interviews', 'Digital program', 'Voting access']
+  },
+  // India Events
+  {
+    id: '14',
+    title: 'India Tech Week 2024',
+    description: 'India\'s largest technology conference bringing together startups, enterprises, and tech enthusiasts to explore the future of technology in India.',
+    date: '2024-10-15',
+    time: '09:00',
+    location: 'Bengaluru International Exhibition Centre',
+    maxAttendees: 5000,
+    currentAttendees: 3456,
+    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop',
+    organizer: 'Tech India Foundation',
+    category: 'conference',
+    isPublic: true,
+    rsvpDeadline: '2024-10-10',
+    price: 2500,
+    contactInfo: {
+      email: 'info@indiatechweek.com',
+      phone: '+91-80-4567-8901',
+      website: 'https://indiatechweek.com',
+      socialMedia: {
+        twitter: '@indiatechweek',
+        linkedin: 'india-tech-week',
+        instagram: '@indiatechweek'
+      }
+    },
+    venue: {
+      name: 'Bengaluru International Exhibition Centre',
+      address: '10th Mile, Tumkur Road',
+      city: 'Bengaluru',
+      state: 'Karnataka',
+      zipCode: '560073',
+      capacity: 6000
+    },
+    tags: ['Technology', 'Startups', 'Innovation', 'India', 'AI', 'Digital Transformation'],
+    speakers: ['Indian Tech CEOs', 'Government Officials', 'International Speakers'],
+    agenda: ['Keynote: Digital India', 'Startup Pitch Competition', 'AI Workshop', 'Networking Dinner'],
+    requirements: ['Valid ID proof', 'Business cards'],
+    benefits: ['Conference materials', 'Networking opportunities', 'Startup expo access', 'Certificate']
+  },
+  {
+    id: '15',
+    title: 'Mumbai Financial Summit 2024',
+    description: 'Premier financial conference in Mumbai covering fintech, digital banking, cryptocurrency, and investment strategies in the Indian market.',
+    date: '2024-09-28',
+    time: '10:00',
+    location: 'Trident Bandra Kurla',
+    maxAttendees: 800,
+    currentAttendees: 634,
+    image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&h=400&fit=crop',
+    organizer: 'Finance India Association',
+    category: 'business',
+    isPublic: true,
+    rsvpDeadline: '2024-09-25',
+    price: 5000,
+    contactInfo: {
+      email: 'summit@financeindia.org',
+      phone: '+91-22-6789-0123',
+      website: 'https://mumbaifinancesummit.com',
+      socialMedia: {
+        linkedin: 'mumbai-finance-summit',
+        twitter: '@mumbaifinance'
+      }
+    },
+    venue: {
+      name: 'Trident Bandra Kurla',
+      address: 'C-56, G Block, Bandra Kurla Complex',
+      city: 'Mumbai',
+      state: 'Maharashtra',
+      zipCode: '400051',
+      capacity: 1000
+    },
+    tags: ['Finance', 'Fintech', 'Banking', 'Investment', 'Mumbai', 'India'],
+    speakers: ['RBI Officials', 'Bank CEOs', 'Fintech Leaders', 'Investment Experts'],
+    agenda: ['Digital Banking Panel', 'Fintech Innovation', 'Investment Strategies', 'Regulatory Updates'],
+    requirements: ['Business attire', 'KYC documents for some sessions'],
+    benefits: ['Industry reports', 'Networking lunch', 'Expert consultations', 'Digital resources']
+  },
+  {
+    id: '16',
+    title: 'Delhi Startup Conclave 2024',
+    description: 'Connect with India\'s startup ecosystem in Delhi. Meet investors, mentors, and fellow entrepreneurs in this comprehensive startup event.',
+    date: '2024-09-18',
+    time: '09:30',
+    location: 'India Habitat Centre',
+    maxAttendees: 1200,
+    currentAttendees: 945,
+    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=400&fit=crop',
+    organizer: 'Startup India Hub',
+    category: 'business',
+    isPublic: true,
+    rsvpDeadline: '2024-09-15',
+    price: 1500,
+    contactInfo: {
+      email: 'conclave@startupindiahub.com',
+      phone: '+91-11-4567-8901',
+      website: 'https://delhistartupconclave.com',
+      socialMedia: {
+        twitter: '@startupdelhi',
+        linkedin: 'delhi-startup-conclave',
+        instagram: '@delhistartups'
+      }
+    },
+    venue: {
+      name: 'India Habitat Centre',
+      address: 'Lodhi Road',
+      city: 'New Delhi',
+      state: 'Delhi',
+      zipCode: '110003',
+      capacity: 1500
+    },
+    tags: ['Startups', 'Entrepreneurship', 'Investment', 'Delhi', 'Innovation', 'Networking'],
+    speakers: ['Venture Capitalists', 'Successful Entrepreneurs', 'Government Officials'],
+    agenda: ['Startup Pitches', 'Investor Panel', 'Mentorship Sessions', 'Networking Tea'],
+    requirements: ['Startup pitch deck (for participants)', 'Business plan'],
+    benefits: ['Investor meetings', 'Mentorship access', 'Startup toolkit', 'Follow-up support']
+  },
+  {
+    id: '17',
+    title: 'Chennai Healthcare Innovation Summit',
+    description: 'Explore healthcare technology innovations, telemedicine, and medical device developments in India\'s healthcare capital.',
+    date: '2024-10-05',
+    time: '08:30',
+    location: 'ITC Grand Chola',
+    maxAttendees: 600,
+    currentAttendees: 423,
+    image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop',
+    organizer: 'Healthcare Innovation India',
+    category: 'health',
+    isPublic: true,
+    rsvpDeadline: '2024-10-02',
+    price: 3500,
+    contactInfo: {
+      email: 'summit@healthcareinnovation.in',
+      phone: '+91-44-2345-6789',
+      website: 'https://chennaihealthsummit.com',
+      socialMedia: {
+        linkedin: 'chennai-healthcare-summit',
+        twitter: '@chennaihealthtech'
+      }
+    },
+    venue: {
+      name: 'ITC Grand Chola',
+      address: '63, Mount Road, Guindy',
+      city: 'Chennai',
+      state: 'Tamil Nadu',
+      zipCode: '600032',
+      capacity: 800
+    },
+    tags: ['Healthcare', 'Medical Technology', 'Telemedicine', 'Innovation', 'Chennai'],
+    speakers: ['Medical Professionals', 'Healthcare CIOs', 'MedTech Entrepreneurs'],
+    agenda: ['Telemedicine Revolution', 'AI in Healthcare', 'Medical Devices', 'Regulatory Framework'],
+    requirements: ['Medical/Healthcare background preferred', 'Valid medical license for some sessions'],
+    benefits: ['CME credits', 'Healthcare reports', 'Technology demos', 'Professional networking']
+  },
+  {
+    id: '18',
+    title: 'Kolkata Cultural Festival 2024',
+    description: 'Celebrate Bengal\'s rich cultural heritage with traditional music, dance, art exhibitions, and literary discussions in the cultural capital of India.',
+    date: '2024-11-12',
+    time: '16:00',
+    location: 'Science City Auditorium',
+    maxAttendees: 2000,
+    currentAttendees: 1234,
+    image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=400&fit=crop',
+    organizer: 'Bengal Cultural Society',
+    category: 'art',
+    isPublic: true,
+    rsvpDeadline: '2024-11-08',
+    price: 500,
+    contactInfo: {
+      email: 'festival@bengalculture.org',
+      phone: '+91-33-2345-6789',
+      website: 'https://kolkataculturalFest.com',
+      socialMedia: {
+        facebook: 'kolkataculturalFest',
+        instagram: '@kolkataculture',
+        twitter: '@bengalculture'
+      }
+    },
+    venue: {
+      name: 'Science City Auditorium',
+      address: 'JBS Haldane Avenue',
+      city: 'Kolkata',
+      state: 'West Bengal',
+      zipCode: '700046',
+      capacity: 2500
+    },
+    tags: ['Culture', 'Art', 'Music', 'Dance', 'Literature', 'Bengal', 'Traditional'],
+    speakers: ['Renowned Artists', 'Authors', 'Cultural Historians', 'Musicians'],
+    agenda: ['Cultural Performances', 'Art Exhibition', 'Literary Sessions', 'Traditional Music'],
+    requirements: ['Cultural interest', 'No specific requirements'],
+    benefits: ['Cultural programs', 'Art exhibition access', 'Traditional snacks', 'Cultural merchandise']
+  },
+  {
+    id: '19',
+    title: 'Hyderabad EdTech Conference 2024',
+    description: 'Discover the future of education technology, online learning platforms, and digital transformation in education sector.',
+    date: '2024-09-22',
+    time: '09:00',
+    location: 'HITEC City Convention Centre',
+    maxAttendees: 1000,
+    currentAttendees: 756,
+    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=400&fit=crop',
+    organizer: 'EdTech India Alliance',
+    category: 'education',
+    isPublic: true,
+    rsvpDeadline: '2024-09-19',
+    price: 2000,
+    contactInfo: {
+      email: 'conference@edtechindia.org',
+      phone: '+91-40-4567-8901',
+      website: 'https://hyderabadedtech.com',
+      socialMedia: {
+        linkedin: 'edtech-india-alliance',
+        twitter: '@edtechindia'
+      }
+    },
+    venue: {
+      name: 'HITEC City Convention Centre',
+      address: 'Madhapur, HITEC City',
+      city: 'Hyderabad',
+      state: 'Telangana',
+      zipCode: '500081',
+      capacity: 1200
+    },
+    tags: ['Education', 'Technology', 'EdTech', 'Online Learning', 'Digital Education'],
+    speakers: ['EdTech CEOs', 'Education Ministers', 'University Leaders', 'Learning Experts'],
+    agenda: ['Future of Learning', 'EdTech Innovations', 'Policy Discussions', 'Product Demos'],
+    requirements: ['Education sector involvement preferred'],
+    benefits: ['EdTech resources', 'Policy documents', 'Networking opportunities', 'Product trials']
+  },
+  {
+    id: '20',
+    title: 'Goa Food & Wine Festival 2024',
+    description: 'Experience Goa\'s culinary heritage and contemporary cuisine with renowned chefs, wine tastings, and beachside dining experiences.',
+    date: '2024-12-08',
+    time: '17:00',
+    location: 'Grand Hyatt Goa',
+    maxAttendees: 400,
+    currentAttendees: 287,
+    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=400&fit=crop',
+    organizer: 'Goa Tourism Board',
+    category: 'food',
+    isPublic: true,
+    rsvpDeadline: '2024-12-05',
+    price: 4500,
+    contactInfo: {
+      email: 'foodfest@goatourism.gov.in',
+      phone: '+91-832-245-6789',
+      website: 'https://goafoodwinefest.com',
+      socialMedia: {
+        instagram: '@goafoodwine',
+        facebook: 'goafoodwinefest',
+        twitter: '@goafoodfest'
+      }
+    },
+    venue: {
+      name: 'Grand Hyatt Goa',
+      address: 'P.O. Goa University, Bambolim',
+      city: 'Goa',
+      state: 'Goa',
+      zipCode: '403206',
+      capacity: 500
+    },
+    tags: ['Food', 'Wine', 'Goan Cuisine', 'Culinary', 'Beach', 'Festival'],
+    speakers: ['Celebrity Chefs', 'Sommeliers', 'Food Critics', 'Local Chefs'],
+    agenda: ['Cooking Demonstrations', 'Wine Tastings', 'Goan Food History', 'Beachside Dinner'],
+    requirements: ['Age 21+ for wine events', 'Smart casual attire'],
+    benefits: ['All tastings included', 'Recipe booklet', 'Wine discounts', 'Chef interactions']
   },
   {
     id: '3',

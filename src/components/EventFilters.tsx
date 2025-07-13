@@ -78,15 +78,28 @@ const EventFilters = ({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Locations</SelectItem>
-            <SelectItem value="san-francisco">San Francisco</SelectItem>
-            <SelectItem value="new-york">New York</SelectItem>
-            <SelectItem value="los-angeles">Los Angeles</SelectItem>
-            <SelectItem value="chicago">Chicago</SelectItem>
-            <SelectItem value="amsterdam">Amsterdam</SelectItem>
-            <SelectItem value="tucson">Tucson</SelectItem>
-            <SelectItem value="napa">Napa Valley</SelectItem>
-            <SelectItem value="mountain-view">Mountain View</SelectItem>
-            <SelectItem value="pasadena">Pasadena</SelectItem>
+            {/* US Cities */}
+            <SelectItem value="san-francisco">San Francisco, CA</SelectItem>
+            <SelectItem value="new-york">New York, NY</SelectItem>
+            <SelectItem value="los-angeles">Los Angeles, CA</SelectItem>
+            <SelectItem value="chicago">Chicago, IL</SelectItem>
+            <SelectItem value="mountain-view">Mountain View, CA</SelectItem>
+            <SelectItem value="pasadena">Pasadena, CA</SelectItem>
+            <SelectItem value="tucson">Tucson, AZ</SelectItem>
+            <SelectItem value="napa">Napa Valley, CA</SelectItem>
+            {/* International */}
+            <SelectItem value="amsterdam">Amsterdam, Netherlands</SelectItem>
+            {/* Indian Cities */}
+            <SelectItem value="bengaluru">Bengaluru, India</SelectItem>
+            <SelectItem value="mumbai">Mumbai, India</SelectItem>
+            <SelectItem value="delhi">New Delhi, India</SelectItem>
+            <SelectItem value="chennai">Chennai, India</SelectItem>
+            <SelectItem value="kolkata">Kolkata, India</SelectItem>
+            <SelectItem value="hyderabad">Hyderabad, India</SelectItem>
+            <SelectItem value="goa">Goa, India</SelectItem>
+            {/* Online Events */}
+            <SelectItem value="online">Online Events</SelectItem>
+            <SelectItem value="virtual">Virtual Events</SelectItem>
           </SelectContent>
         </Select>
 
