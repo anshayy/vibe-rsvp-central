@@ -89,12 +89,12 @@ const Index = () => {
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex flex-col sm:flex-row justify-between items-center h-auto sm:h-16 py-4 sm:py-0 gap-4 sm:gap-0">
             <div className="flex items-center gap-3">
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
                 <Calendar className="w-6 h-6 text-white" />
               </div>
-              <div>
+              <div className="text-center sm:text-left">
                 <h1 className="text-xl font-bold text-gray-900">EventHub</h1>
                 <p className="text-sm text-gray-500">Event Management & RSVP System</p>
               </div>
@@ -102,7 +102,7 @@ const Index = () => {
             
             <Button 
               onClick={() => setIsCreateModalOpen(true)}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 gap-2"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 gap-2 w-full sm:w-auto"
             >
               <Plus className="w-4 h-4" />
               Create Event
@@ -111,16 +111,16 @@ const Index = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         {/* Hero Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-6 h-6 text-purple-600" />
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Discover Amazing Events
             </h2>
           </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Connect with your community through exciting events. Create, discover, and RSVP to events that matter to you.
           </p>
         </div>
@@ -141,8 +141,8 @@ const Index = () => {
 
         {/* Events Grid */}
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-bold text-gray-900">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
               {filteredEvents.length === events.length 
                 ? 'All Events' 
                 : `Filtered Events (${filteredEvents.length})`
@@ -154,7 +154,7 @@ const Index = () => {
             <div className="text-center py-12">
               <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">No events found</h3>
-              <p className="text-gray-500 mb-4">
+              <p className="text-gray-500 mb-4 px-4">
                 {searchTerm || selectedCategory !== 'all' || selectedLocation !== 'all'
                   ? 'Try adjusting your search or filters'
                   : 'Be the first to create an event!'
@@ -167,7 +167,7 @@ const Index = () => {
               )}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6">
               {filteredEvents.map((event) => (
                 <EventCard
                   key={event.id}
