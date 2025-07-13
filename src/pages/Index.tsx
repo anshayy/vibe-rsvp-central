@@ -1,6 +1,5 @@
-
 import React, { useState, useMemo } from 'react';
-import { Plus, Calendar, Sparkles } from 'lucide-react';
+import { Plus, Calendar, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import EventCard from '../components/EventCard';
@@ -21,7 +20,6 @@ const Index = () => {
   const [selectedLocation, setSelectedLocation] = useState('all');
   const { toast } = useToast();
 
-  // Filter events based on search and filters
   const filteredEvents = useMemo(() => {
     return events.filter(event => {
       const matchesSearch = event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -34,7 +32,6 @@ const Index = () => {
     });
   }, [events, searchTerm, selectedCategory, selectedLocation]);
 
-  // Calculate stats
   const stats = useMemo(() => {
     const totalEvents = events.length;
     const totalAttendees = events.reduce((sum, event) => sum + event.currentAttendees, 0);
@@ -55,7 +52,6 @@ const Index = () => {
   };
 
   const handleRSVPSubmit = (rsvpData: any) => {
-    // Update event attendance count
     setEvents(prev => prev.map(event => 
       event.id === rsvpData.eventId 
         ? { ...event, currentAttendees: event.currentAttendees + 1 }
@@ -85,43 +81,41 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center h-auto sm:h-16 py-4 sm:py-0 gap-4 sm:gap-0">
-            <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
-                <Calendar className="w-6 h-6 text-white" />
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                <Calendar className="w-5 h-5 text-white" />
               </div>
-              <div className="text-center sm:text-left">
-                <h1 className="text-xl font-bold text-gray-900">EventHub</h1>
-                <p className="text-sm text-gray-500">Event Management & RSVP System</p>
+              <div>
+                <h1 className="text-xl font-semibold text-gray-900">EventHub</h1>
+                <p className="text-sm text-gray-500">Discover and manage events</p>
               </div>
             </div>
             
             <Button 
               onClick={() => setIsCreateModalOpen(true)}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 gap-2 w-full sm:w-auto"
+              className="bg-blue-600 hover:bg-blue-700 text-white"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-4 h-4 mr-2" />
               Create Event
             </Button>
           </div>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
-        <div className="text-center mb-8 sm:mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-purple-600" />
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Discover Amazing Events
-            </h2>
-          </div>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-            Connect with your community through exciting events. Create, discover, and RSVP to events that matter to you.
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Find Your Next Event
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover conferences, workshops, networking events, and more in your area. 
+            Connect with your community and expand your horizons.
           </p>
         </div>
 
@@ -139,35 +133,35 @@ const Index = () => {
           onClearFilters={clearFilters}
         />
 
-        {/* Events Grid */}
+        {/* Events Section */}
         <div className="mb-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-2xl font-semibold text-gray-900">
               {filteredEvents.length === events.length 
                 ? 'All Events' 
-                : `Filtered Events (${filteredEvents.length})`
+                : `${filteredEvents.length} Events Found`
               }
             </h3>
           </div>
 
           {filteredEvents.length === 0 ? (
-            <div className="text-center py-12">
-              <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+            <div className="text-center py-16 bg-white rounded-lg border border-gray-200">
+              <Search className="w-12 h-12 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">No events found</h3>
-              <p className="text-gray-500 mb-4 px-4">
+              <p className="text-gray-500 mb-6">
                 {searchTerm || selectedCategory !== 'all' || selectedLocation !== 'all'
-                  ? 'Try adjusting your search or filters'
+                  ? 'Try adjusting your search criteria'
                   : 'Be the first to create an event!'
                 }
               </p>
               {(searchTerm || selectedCategory !== 'all' || selectedLocation !== 'all') && (
                 <Button variant="outline" onClick={clearFilters}>
-                  Clear Filters
+                  Clear All Filters
                 </Button>
               )}
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredEvents.map((event) => (
                 <EventCard
                   key={event.id}
@@ -181,7 +175,7 @@ const Index = () => {
         </div>
       </main>
 
-      {/* RSVP Modal */}
+      {/* Modals */}
       <RSVPModal
         event={selectedEvent}
         isOpen={isRSVPModalOpen}
@@ -189,7 +183,6 @@ const Index = () => {
         onSubmit={handleRSVPSubmit}
       />
 
-      {/* Create Event Modal */}
       <CreateEventModal
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}

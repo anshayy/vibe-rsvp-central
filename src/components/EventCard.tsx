@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Calendar, MapPin, Users, Clock, DollarSign, Mail, Phone, Globe, Star, Tag } from 'lucide-react';
+import { Calendar, MapPin, Users, Clock, DollarSign, Mail, Phone, Globe } from 'lucide-react';
 import { Event } from '../types/event';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -30,77 +30,77 @@ const EventCard = ({ event, onRSVP, onViewDetails }: EventCardProps) => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      conference: 'bg-blue-100 text-blue-800',
-      workshop: 'bg-green-100 text-green-800',
-      networking: 'bg-purple-100 text-purple-800',
-      social: 'bg-orange-100 text-orange-800',
-      music: 'bg-pink-100 text-pink-800',
-      sports: 'bg-red-100 text-red-800',
-      food: 'bg-yellow-100 text-yellow-800',
-      art: 'bg-indigo-100 text-indigo-800',
-      business: 'bg-gray-100 text-gray-800',
-      health: 'bg-emerald-100 text-emerald-800',
-      education: 'bg-cyan-100 text-cyan-800',
-      other: 'bg-slate-100 text-slate-800'
+      conference: 'bg-blue-50 text-blue-700 border-blue-200',
+      workshop: 'bg-green-50 text-green-700 border-green-200',
+      networking: 'bg-purple-50 text-purple-700 border-purple-200',
+      social: 'bg-orange-50 text-orange-700 border-orange-200',
+      music: 'bg-pink-50 text-pink-700 border-pink-200',
+      sports: 'bg-red-50 text-red-700 border-red-200',
+      food: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+      art: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+      business: 'bg-gray-50 text-gray-700 border-gray-200',
+      health: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+      education: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+      other: 'bg-slate-50 text-slate-700 border-slate-200'
     };
     return colors[category as keyof typeof colors] || colors.other;
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+    <div className="bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 overflow-hidden">
       {/* Event Image */}
-      <div className="relative h-48 sm:h-56 overflow-hidden">
+      <div className="relative h-48 overflow-hidden">
         <img 
           src={event.image} 
           alt={event.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute top-4 left-4">
-          <Badge className={getCategoryColor(event.category)}>
+        <div className="absolute top-3 left-3">
+          <Badge className={`${getCategoryColor(event.category)} border`}>
             {event.category}
           </Badge>
         </div>
-        <div className="absolute top-4 right-4">
-          <Badge variant="secondary" className="bg-black/70 text-white">
+        <div className="absolute top-3 right-3">
+          <Badge variant="secondary" className="bg-white/90 text-gray-900">
             {formatPrice(event.price)}
           </Badge>
         </div>
         {(isNearlyFull || isFull) && (
-          <div className="absolute bottom-4 right-4">
-            <Badge variant={isFull ? "destructive" : "secondary"}>
-              {isFull ? "Full" : "Almost Full"}
+          <div className="absolute bottom-3 right-3">
+            <Badge variant={isFull ? "destructive" : "secondary"} className="bg-white/90">
+              {isFull ? "Sold Out" : "Almost Full"}
             </Badge>
           </div>
         )}
       </div>
 
       {/* Event Content */}
-      <div className="p-4 sm:p-6">
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+      <div className="p-5">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
           {event.title}
         </h3>
         
-        <p className="text-gray-600 mb-4 text-sm line-clamp-3">
+        <p className="text-gray-600 mb-4 text-sm line-clamp-2">
           {event.description}
         </p>
 
         {/* Event Details */}
-        <div className="space-y-3 mb-4">
-          <div className="flex items-center text-sm text-gray-500">
-            <Calendar className="w-4 h-4 mr-2 flex-shrink-0" />
+        <div className="space-y-2 mb-4">
+          <div className="flex items-center text-sm text-gray-600">
+            <Calendar className="w-4 h-4 mr-2 text-gray-400" />
             <span>{formatDate(event.date)} at {event.time}</span>
           </div>
           
-          <div className="flex items-start text-sm text-gray-500">
-            <MapPin className="w-4 h-4 mr-2 flex-shrink-0 mt-0.5" />
+          <div className="flex items-start text-sm text-gray-600">
+            <MapPin className="w-4 h-4 mr-2 text-gray-400 mt-0.5" />
             <div className="flex flex-col">
               <span className="font-medium">{event.venue.name}</span>
-              <span className="text-xs">{event.venue.city}, {event.venue.state}</span>
+              <span className="text-xs text-gray-500">{event.venue.city}, {event.venue.state}</span>
             </div>
           </div>
           
-          <div className="flex items-center text-sm text-gray-500">
-            <Users className="w-4 h-4 mr-2 flex-shrink-0" />
+          <div className="flex items-center text-sm text-gray-600">
+            <Users className="w-4 h-4 mr-2 text-gray-400" />
             <span>{event.currentAttendees.toLocaleString()} / {event.maxAttendees.toLocaleString()} attending</span>
           </div>
         </div>
@@ -114,21 +114,21 @@ const EventCard = ({ event, onRSVP, onViewDetails }: EventCardProps) => {
           ))}
           {event.tags.length > 3 && (
             <Badge variant="outline" className="text-xs">
-              +{event.tags.length - 3} more
+              +{event.tags.length - 3}
             </Badge>
           )}
         </div>
 
-        {/* Attendance Progress Bar */}
+        {/* Attendance Progress */}
         <div className="mb-4">
           <div className="flex justify-between text-xs text-gray-500 mb-1">
-            <span>Attendance</span>
+            <span>Capacity</span>
             <span>{Math.round(attendancePercentage)}%</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-gray-100 rounded-full h-2">
             <div 
-              className={`h-2 rounded-full transition-all duration-300 ${
-                isFull ? 'bg-red-500' : isNearlyFull ? 'bg-yellow-500' : 'bg-green-500'
+              className={`h-2 rounded-full ${
+                isFull ? 'bg-red-500' : isNearlyFull ? 'bg-yellow-500' : 'bg-blue-500'
               }`}
               style={{ width: `${Math.min(attendancePercentage, 100)}%` }}
             />
@@ -136,11 +136,11 @@ const EventCard = ({ event, onRSVP, onViewDetails }: EventCardProps) => {
         </div>
 
         {/* Contact Info */}
-        <div className="mb-4 p-3 bg-gray-50 rounded-lg">
+        <div className="mb-4 p-3 bg-gray-50 rounded-md">
           <div className="flex flex-wrap gap-3 text-xs text-gray-600">
             <div className="flex items-center">
               <Mail className="w-3 h-3 mr-1" />
-              <span className="truncate max-w-[120px] sm:max-w-none">{event.contactInfo.email}</span>
+              <span className="truncate">{event.contactInfo.email}</span>
             </div>
             {event.contactInfo.phone && (
               <div className="flex items-center">
@@ -158,7 +158,7 @@ const EventCard = ({ event, onRSVP, onViewDetails }: EventCardProps) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-2">
+        <div className="flex gap-2 mb-4">
           <Button 
             variant="outline" 
             className="flex-1"
@@ -167,18 +167,18 @@ const EventCard = ({ event, onRSVP, onViewDetails }: EventCardProps) => {
             View Details
           </Button>
           <Button 
-            className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+            className="flex-1 bg-blue-600 hover:bg-blue-700"
             onClick={() => onRSVP?.(event.id)}
             disabled={isFull}
           >
-            {isFull ? 'Full' : 'RSVP'}
+            {isFull ? 'Sold Out' : 'RSVP'}
           </Button>
         </div>
 
         {/* Organizer */}
-        <div className="mt-4 pt-4 border-t border-gray-100">
+        <div className="pt-3 border-t border-gray-100">
           <p className="text-xs text-gray-500">
-            Organized by <span className="font-medium">{event.organizer}</span>
+            Organized by <span className="font-medium text-gray-700">{event.organizer}</span>
           </p>
         </div>
       </div>
